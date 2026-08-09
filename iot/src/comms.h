@@ -1,3 +1,4 @@
+//Notes: Event Log, sensorData, device Payload
 /*
  * Communications logic for the development module, including MQTT setup, 
  * message handling, and periodic updates.
