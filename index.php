@@ -27,7 +27,15 @@ try {
     $connected = true;
 
     // Fetch the 10 most recent telemetry records
+    if($selectedDevice !== 'ALL' && !empty($selectedDevice)) {
+    
     $stmt = $pdo->query("SELECT * FROM sensor_readings WHERE device_id = $selectedDevice ORDER BY recorded_at DESC LIMIT $itemsPerPage");
+    } else {
+
+        $stmt = $pdo->query("SELECT * FROM sensor_readings ORDER BY recorded_at DESC LIMIT $itemsPerPage");
+
+    }
+    
     $readings = $stmt->fetchAll();
 
 } catch (\PDOException $e) {
